@@ -1,0 +1,18 @@
+## Config file - crypto tracker
+
+
+## USER DEFAULTS
+
+api_key = 
+
+run_mode = a
+
+crypto_currency = BTC
+
+match_currency = USD
+
+
+
+
+
+
