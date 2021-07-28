@@ -1,15 +1,21 @@
-## Config file - crypto tracker
+## Config file - CRYPER
+
+# Any and all crypto currencies or government currencies shall be referred to as assets from this point on.
 
 
-## USER DEFAULTS
+## USER DEFAULT SECTION ##
 
+# Enter the API key provided by https://www.coinapi.io/
 api_key = 
 
-run_mode = a
+# Run mode flags are either 'a' for all assets or 'x' to view exchange rates for any two given currencies.
+run_mode = 
 
-crypto_currency = BTC
+# Set this flag as your preferred asset that you wish to see the exchange rate of, IN ALL CAPS! ex. BTC, DOGE, USD, etc. Only has effect when the run mode is set to 'x'. Equal to '-c' option
+crypto_currency = 
 
-match_currency = USD
+# Set this flag as your preferred asset to match against, IN ALL CAPS. ex. DOGE, BTC, USD, etc. Equal to '-m' option
+match_currency = 
 
 
 

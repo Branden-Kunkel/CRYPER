@@ -1,7 +1,7 @@
 import re
 import os
 
-# in house INIT dependency parser
+# Parser for config file
 
 def conf_parse():
 

@@ -5,14 +5,12 @@ import getopt, sys
 import IHCparser
 import INIT
 
+# Main CRYPER program file
+
 INIT.initialize()
 
-# default variables returned from config file via 'IHCparser'
 api_key, frun_mode, fcrypto, fcurrency = IHCparser.conf_parse()
-#print(api_key)
 
-# function to figure out the options to use
-    # 1) function needs to conform to user bieng able to use defaults
 def arg_engine(run_mode, crypto, currency):
 
     argvalue = sys.argv[1:]
@@ -53,12 +51,10 @@ def arg_engine(run_mode, crypto, currency):
     except getopt.GetoptError('Invalid option speciefied') as err:
         print("Invalid option specified.")
 
-    # pipes the following variables to 'main'
     print(run_type, crypto_asset, currency_match)
     return run_type, crypto_asset, currency_match
 
-
-# main function, binds all    
+    
 def main():
 
     run_mode, crypto, currency = arg_engine(frun_mode, fcrypto, fcurrency)
