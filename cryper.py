@@ -1,7 +1,9 @@
 import json
 from json.decoder import JSONDecodeError 
 import requests
-import getopt, sys
+import getopt
+import sys
+import os
 import IHCparser
 import INIT
 
@@ -45,8 +47,14 @@ def arg_engine(run_mode, crypto, currency):
                 run_type = opt
 
             elif opt in ['-h']:
-                print("help message here")
-            
+                try:
+
+                    with open('HELP.txt') as help_file:
+                        read_file = help_file.read()
+                        print(read_file)
+
+                except FileNotFoundError:
+                    print("Help file not found?!")
 
     except getopt.GetoptError('Invalid option speciefied') as err:
         print("Invalid option specified.")
