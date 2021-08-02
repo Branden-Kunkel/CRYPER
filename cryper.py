@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import json
 from json.decoder import JSONDecodeError 
 import requests
@@ -9,7 +11,8 @@ import INIT
 
 # Main CRYPER program file
 
-INIT.initialize()
+INIT.initialize_cfile()
+INIT.initialize_executable()
 
 api_key, frun_mode, fcrypto, fcurrency = IHCparser.conf_parse()
 
