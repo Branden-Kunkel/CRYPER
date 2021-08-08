@@ -5,6 +5,7 @@ information to another API for further use. Functionality is limited at the time
 Furthermore, a config file is included in which you can set default behaviors for the program. Any time that options/ flags are passed through the program, they will ALWAYS override the default values. All response objects are in JSON
 format.
 
+	If no run mode is specified, CRYPER will automatically run in 'a' asset mode, and simply fetch all available assets. equivalent to 'a'. To change default behavior, just keep reading or set config file values to desired behavior!
 	Syntax is standard shell code style, with short-hand options as the flags. Options and syntax examples as follows:
 
 OPTIONS:

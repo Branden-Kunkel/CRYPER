@@ -12,7 +12,6 @@ import INIT
 # Main CRYPER program file
 
 INIT.initialize_cfile()
-INIT.initialize_executable()
 
 api_key, frun_mode, fcrypto, fcurrency = IHCparser.conf_parse()
 
@@ -24,13 +23,17 @@ def arg_engine(run_mode, crypto, currency):
     crypto_asset = crypto
     currency_match = currency
 
-    opts, args = getopt.getopt(argvalue, 'haxc:m:')
+    opts, args = getopt.getopt(argvalue, 'haxc:m:', 'install')
 
     try:
 
         for opt, arg in opts:
 
-            if opt in ['-x']:
+            if opt in ['--install']:
+                
+                INIT.initialize_executable
+
+            elif opt in ['-x']:
 
                 run_type = opt
 
@@ -76,10 +79,19 @@ def main():
     
     try:
 
-        if run_mode in ['x', '-x']:
-            
-            print(run_mode)
+        if run_mode == '':
 
+            response = requests.get(asset_url, headers=headers)
+
+            data = json.loads(response.text)
+            
+            print(response)
+
+            print(json.dumps(data, ensure_ascii=True, sort_keys=True, indent=6))
+
+
+        elif run_mode in ['x', '-x']:
+            
             response = requests.get(exchange_url, headers=headers)
 
             data = json.loads(response.text)
@@ -100,7 +112,8 @@ def main():
 
             print(json.dumps(data, ensure_ascii=True, sort_keys=True, indent=6))
 
+
     except JSONDecodeError:
-        print("Empty JSON response recieved!")
+        print("Empty JSON response recieved! Arguments needed.")
 
 main()
