@@ -6,7 +6,7 @@
 ## USER DEFAULT SECTION ##
 
 # Enter the API key provided by https://www.coinapi.io/
-api_key = 14C162B7-D857-4810-80D8-751C5956D5A7
+api_key = 
 
 # Run mode flags are either 'a' for all assets or 'x' to view exchange rates for any two given currencies.
 run_mode = 
