@@ -3,7 +3,7 @@ THANKS FOR USING CRYPER
 	The program was designed for people to be able to quickly view real time exhcnage rates on world currencies (including and especially Crypto) as well as provide a program easily manipulated to send the asset (currency)
 information to another API for further use. Functionality is limited at the time of this writing (06-27-2021) but more will come as I find practical use cases, or if any community input that is practical would benefit the program!
 Furthermore, a config file is included in which you can set default behaviors for the program. Any time that options/ flags are passed through the program, they will ALWAYS override the default values. All response objects are in JSON
-format.
+format. Also, the program has an option to install on UNIX systems, but not for Windows YET.
 
 	If no run mode is specified, CRYPER will automatically run in 'a' asset mode, and simply fetch all available assets. equivalent to 'a'. To change default behavior, just keep reading or set config file values to desired behavior!
 	Syntax is standard shell code style, with short-hand options as the flags. Options and syntax examples as follows:
@@ -19,6 +19,9 @@ OPTIONS:
 	'-m' = [match_currency] Accepts an argument IN ALL CAPS that will be the currency (usually gov currency here) that you match AGAINST for the exchange rate for '-c'
 
 	'-h' = [help page] Will print this document
+	
+	To install (Linux) simply run 'python3 cryper.py --install'. This will handle the steps via the INIT module so that you can call the program from anywhere
+		by just typing cryper, as opposed to calling python everytime.
 
 	Examples: 
 		
@@ -29,4 +32,6 @@ OPTIONS:
 		cryper -a = Returns a list of all available options.
 
 		cryper -h = Print this document!
+		
+		
 
