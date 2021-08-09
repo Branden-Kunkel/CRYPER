@@ -5,7 +5,6 @@ from json.decoder import JSONDecodeError
 import requests
 import getopt
 import sys
-import os
 import IHCparser
 import INIT
 
@@ -31,7 +30,7 @@ def arg_engine(run_mode, crypto, currency):
 
             if opt in ['--install']:
                 
-                INIT.initialize_executable
+                run_type = opt
 
             elif opt in ['-x']:
 
@@ -65,7 +64,6 @@ def arg_engine(run_mode, crypto, currency):
     except getopt.GetoptError('Invalid option speciefied') as err:
         print("Invalid option specified.")
 
-    print(run_type, crypto_asset, currency_match)
     return run_type, crypto_asset, currency_match
 
     
@@ -89,6 +87,9 @@ def main():
 
             print(json.dumps(data, ensure_ascii=True, sort_keys=True, indent=6))
 
+        elif run_mode in ['--install', 'install']:
+
+            INIT.initialize_executable()
 
         elif run_mode in ['x', '-x']:
             
@@ -101,8 +102,6 @@ def main():
             print(json.dumps(data, ensure_ascii=True, sort_keys=True, indent=6))
             
         elif run_mode in ['-a', 'a']:
-
-            print(run_mode)
 
             response = requests.get(asset_url, headers=headers)
 

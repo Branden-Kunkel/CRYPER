@@ -1,5 +1,4 @@
 import re
-import os
 
 # Parser for config file
 
