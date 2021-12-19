@@ -32,51 +32,63 @@ def initialize_cfile():
 
 
 def initialize_executable():
-
-    destination_path = '/usr/local/bin/'
-
-    script_loc = str(os.path.realpath('cryper.py'))
-    init_loc = str(os.path.realpath('INIT.py'))
-    ihcparser_loc = str(os.path.realpath('IHCparser.py'))
     
-    if os.path.isdir(destination_path):
-        pass
+    try:
+
+        destination_path = '/usr/local/bin/'
     
-    else:
-        os.system(destination_path)
+        start_path = str(input("Current folder path of the Cryper binaries to install: "))
 
-
-    with open(script_loc) as main_file, open(init_loc) as init_mod, open(ihcparser_loc) as parser_mod:
-
-        if os.path.isfile(destination_path) and os.path.isfile(destination_path) and os.path.isfile(destination_path):
-
+        script_loc = str(os.path.realpath(start_path + 'cryper.py'))
+        init_loc = str(os.path.realpath(start_path + 'INIT.py'))
+        ihcparser_loc = str(os.path.realpath(start_path + 'IHCparser.py'))
+        
+    
+        if os.path.isdir(destination_path):
             pass
-
+        
         else:
+            os.system(destination_path)
 
-            print('Attempting to change to executable')
-            os.system('sudo chmod 755 ' + script_loc)
-            os.system('sudo chmod 755 ' + init_loc)
-            os.system('sudo chmod 755 ' + ihcparser_loc)
-            os.system('sudo cp -i --preserve ' + script_loc + ' ' + destination_path + 'cryper')
-            os.system('sudo cp -i --preserve ' + init_loc + ' ' + destination_path)
-            os.system('sudo cp -i --preserve ' + ihcparser_loc + ' ' + destination_path)
-            os.system('sudo touch ' + destination_path + '__init__.py')
-                
-            print('OK')
-            time.sleep(1)
-            os.system('clear')
+
+        with open(script_loc) as main_file, open(init_loc) as init_mod, open(ihcparser_loc) as parser_mod:
 
             if os.path.isfile(destination_path + 'cryper') and os.path.isfile(destination_path + 'INIT.py') and os.path.isfile(destination_path + 'IHCparser.py'):
+                
+                print('already installed!')
 
+                pass
+
+            else:
+
+                print('Attempting to change to executable')
+                os.system('sudo chmod 755 ' + script_loc)
+                os.system('sudo chmod 755 ' + init_loc)
+                os.system('sudo chmod 755 ' + ihcparser_loc)
+                os.system('sudo cp -i --preserve ' + script_loc + ' ' + destination_path + 'cryper')
+                os.system('sudo cp -i --preserve ' + init_loc + ' ' + destination_path)
+                os.system('sudo cp -i --preserve ' + ihcparser_loc + ' ' + destination_path)
+                os.system('sudo touch ' + destination_path + '__init__.py')
+                
+                    
                 print('OK')
                 time.sleep(1)
                 os.system('clear')
 
-            else:
-                print('Something went wrong.')
+                if os.path.isfile(destination_path + 'cryper') and os.path.isfile(destination_path + 'INIT.py') and os.path.isfile(destination_path + 'IHCparser.py'):
 
+                    print('OK')
+                    time.sleep(1)
+                    os.system('clear')
 
+                else:
+                    print('Something went wrong.')
+
+    except FileNotFoundError:
+        
+        print("file or path not found. Did you trail your input with a '/' ?")
+        
+        initialize_executable()
 
     
     
